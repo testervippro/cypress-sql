@@ -5,7 +5,8 @@ declare namespace Cypress {
          * Custom command description
          * @param param - Parameter description
          */
-        customCommand(param: string): Chainable<any>;
-        executeSqlServer(config: any,query: any,): Chainable<any>;
+        sqlOracle(config: any , query:string): Chainable<any>;
+        
+        sqlServer(config: any,query: string,): Chainable<any>;
     }
 }

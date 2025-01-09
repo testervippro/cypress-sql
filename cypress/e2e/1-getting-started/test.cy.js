@@ -11,7 +11,7 @@ describe('OracleDB Query Test', () => {
       const sqlQuery = 'SELECT employee_id, first_name, last_name, salary FROM employees';
   
       // Call the task to execute the query
-      cy.task('executeQueryOracle', { connectConfig, sqlQuery }).then((results) => {
+      cy.task('sqlOracle', { connectConfig, sqlQuery }).then((results) => {
         // Log the results
         console.log('Query Results:', results);
   
