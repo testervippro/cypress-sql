@@ -1,6 +1,6 @@
 {
-  "name": "cypress-sql-dan",
-  "version": "1.0.4",
+  "name": "@dankieu/cypress-sql",
+  "version": "1.0.0",
   "main": "index.js",
   "types": "src/index.d.ts",
   "scripts": {

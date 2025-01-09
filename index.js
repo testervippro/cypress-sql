@@ -1,12 +1,6 @@
 const oracledb = require('oracledb');
+const sql = require('mssql');
 
-/**
- * Executes a query on an Oracle database.
- * @param {object} args - The task arguments.
- * @param {object} args.connectConfig - The Oracle database connection configuration.
- * @param {string} args.sqlQuery - The SQL query to execute.
- * @returns {Promise<object>} - The query results.
- */
 
 function formatResults(rows) {
   if (!rows || !Array.isArray(rows)) {
@@ -32,8 +26,6 @@ function formatResults(rows) {
 
   return flatten(formattedRows[0]);
 }
-
-const sql = require('mssql');
 
 // Plugin function
 
@@ -107,7 +99,24 @@ const sqlServer = ((on) => {
   
   });
 
+
+
+const   cmd = () => {
+    // Custom command for Oracle queries
+    Cypress.Commands.add('sqlOracle', (connectConfig, sqlQuery) => {
+      return cy.task('sqlOracle', { connectConfig, sqlQuery });
+    });
+  
+    // Custom command for SQL Server queries
+    Cypress.Commands.add('sqlServer', (connectConfig, sqlQuery) => {
+      return cy.task('sqlServer', { connectConfig, sqlQuery });
+    });
+  }; 
+
+cmd()
+
 module.exports = {
   sqlOracle,
-  sqlServer
+  sqlServer,
+  cmd
 }
