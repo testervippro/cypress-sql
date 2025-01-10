@@ -29,23 +29,6 @@ function formatResults(rows) {
 
 // Plugin function
 
-async  function SQLServer(config, query ) {
-      try {
-        // Connect to the database
-        await sql.connect(config);
-
-        // Execute the query
-        const result = await sql.query(query);
-        // Format and return the results
-        return formatResults(result.recordset);
-      } catch (err) {
-        console.error('SQL error:', err);
-        throw err; // Rethrow the error to fail the Cypress task
-      } finally {
-        // Close the database connection
-        await sql.close();
-      }
-    }
 
 
 async function Oracle(connectConfig, sqlQuery) {
@@ -89,6 +72,20 @@ const sqlOracle = ((on) => {
   });
 
 });
+
+async function SQLServer(config,query) {
+  try {
+    const pool = await sql.connect(config,query);
+    const result = await pool.request().query(query);
+    return formatResults(result);
+  } catch (err) {
+    console.error("Database query failed:", err);
+    throw err;
+  } finally {
+    await sql.close();
+  }
+}
+
 const sqlServer = ((on) => {
 
     on('task', {
