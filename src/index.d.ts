@@ -10,3 +10,10 @@ declare namespace Cypress {
         sqlServer(config: any,query: string,): Chainable<any>;
     }
 }
+
+
+// src/index.d.ts
+// export function sqlOracle(connectConfig: any, sqlQuery: string): Promise<any>;
+// export function sqlServer(connectConfig: any, sqlQuery: string): Promise<any>;
+// export function cmd(): void;
+export {}
