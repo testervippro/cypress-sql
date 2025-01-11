@@ -1,14 +1,14 @@
 describe("Test connect to Db", () => {
   it("should fetch data from SQL Server", () => {
     const config = {
-      user: "SA", // SQL Server username
-      password: "Password789", // SQL Server password
-      server: "localhost", // Server name or IP address
-      port: 1433, // Port (default is 1433)
-      database: "master", // Database name
+      user: "SA", 
+      password: "Password789",
+      server: "localhost", 
+      port: 1433, 
+      database: "master", 
       options: {
-        encrypt: false, // Disable encryption (for local development)
-        trustServerCertificate: true, // Trust self-signed certificates
+        encrypt: false, 
+        trustServerCertificate: true, 
       },
     };
 
@@ -25,9 +25,9 @@ describe("Test connect to Db", () => {
   it("should fetch data from OracleDB", () => {
     // Define the connection configuration
     let configOracle = {
-      user: "hr", // Replace with your username
-      password: "hr", // Replace with your password
-      connectString: "localhost:1521/orcl", // Replace with your connect string
+      user: "hr", 
+      password: "hr",
+      connectString: "localhost:1521/orcl", 
     };
 
     // Define the SQL query
@@ -47,10 +47,10 @@ describe("Test connect to Db", () => {
   it("should fetch data from MySQL", () => {
     // Define the connection configuration
     let dbConfig = {
-      host: "localhost", // The host of your MySQL server
-      user: "root", // The MySQL root user
-      password: "college", // The root password for the MySQL server
-      database: "employees", // The employees sample database
+      host: "localhost",
+      user: "root", 
+      password: "college", 
+      database: "employees", 
     };
 
     // Define the SQL query
