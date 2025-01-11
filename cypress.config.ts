@@ -1,7 +1,6 @@
-const sql = require("mssql");
 
 const { defineConfig } = require("cypress");
-const db = require("@dankieu/cypress-sql");
+const db = require("@dankieu/cypress-sql")
 
 module.exports = defineConfig({
   e2e: {

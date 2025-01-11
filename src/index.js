@@ -1,6 +1,5 @@
 const oracledb = require('oracledb');
 const sql = require('mssql');
-const Tedious = require('tedious');
 const mysql = require('mysql');
 const { Client } = require('pg');
 
@@ -203,9 +202,13 @@ const sqlPg = ((on) => {
   
   });  
 
+
+
+    
 module.exports = {
   sqlOracle,
   sqlServer,
   sqlMySql,
-  sqlPg
+  sqlPg,
+
 }

@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+import "@dankieu/cmd"
 // Import the addOracleQueryCommand function from index.js
 // cypress/support/e2e.ts
 
