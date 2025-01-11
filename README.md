@@ -190,4 +190,4 @@ import "@dankieu/cmd"; // Import @dankieu/cmd to initialize custom SQL commands
 
 ---
  # Sample result
-![alt text](sample.jpg)
+<img width="1280" alt="Screen Shot 2025-01-11 at 18 00 56" src="https://github.com/user-attachments/assets/3a040d05-4b47-4a24-a38e-746a7af8f77d" />
