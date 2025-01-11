@@ -1,6 +1,6 @@
 {
   "name": "@dankieu/cypress-sql",
-  "version": "1.1.2",
+  "version": "2.0.1",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "scripts": {
@@ -13,7 +13,9 @@
   "keywords": [
     "cypress",
     "sql",
-    "typescript"
+    "typescript",
+     "cypress-sql",
+       "custom-cmd"
   ],
   "author": "Dan Kieu",
   "license": "MIT",
