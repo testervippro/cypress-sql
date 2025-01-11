@@ -189,5 +189,29 @@ import "@dankieu/cmd"; // Import @dankieu/cmd to initialize custom SQL commands
     ```
 
 ---
+Here is the formatted version of the data:
+
+---
+
+### Data Return Format
+
+The data returned is in JSON format, structured as an array of objects.
+
+```json
+{
+  
+    { "emp_id": 100, "first_name": "Steven", "last_name": "King", "salary": 24000 },
+    { "emp_id": 101, "first_name": "Neena", "last_name": "Yang", "salary": 17000 },
+    { "emp_id": 102, "first_name": "Lex", "last_name": "Garcia", "salary": 17000 },
+    { "emp_id": 103, "first_name": "Alexander", "last_name": "James", "salary": 9000 },
+    { "emp_id": 104, "first_name": "Bruce", "last_name": "Miller", "salary": 6000 }
+  
+}
+```
+
+--- 
+
+This is the structured data in JSON format.
+
  # Sample result
 <img width="1280" alt="Screen Shot 2025-01-11 at 18 00 56" src="https://github.com/user-attachments/assets/3a040d05-4b47-4a24-a38e-746a7af8f77d" />
