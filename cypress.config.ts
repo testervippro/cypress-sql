@@ -1,21 +1,16 @@
-const sql = require('mssql');
+const sql = require("mssql");
 
-const { defineConfig } = require('cypress');
-const db = require('@dankieu/cypress-sql');
-
+const { defineConfig } = require("cypress");
+const db = require("@dankieu/cypress-sql");
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // Optionally initialize Oracle SQL functionality
-      //db.sqlOracle(on);
-      // Return the updated config
-      //sql server
-       //sql db
-    
-     db.sqlServer(on);
-      db.sqlOracle(on)
      
+      db.sqlServer(on);
+      db.sqlOracle(on);
+      db.sqlMySql(on);
+      db.sqlPg(on);
 
       return config;
     },
