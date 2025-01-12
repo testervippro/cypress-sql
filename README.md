@@ -63,12 +63,6 @@ module.exports = defineConfig({
 }
 ```
 
-### Explanation:
-- **`target: "es5"`**: Ensures compatibility with older JavaScript environments.
-- **`lib: ["es5", "dom"]`**: Specifies the libraries that will be included in the compilation process.
-- **`types: ["cypress", "node"]`**: Includes type definitions for Cypress and Node.js to enable IntelliSense and type checking.
-- **`include: ["**/*.ts"]`**: Includes all TypeScript files in the project.
-
 ---
 
 # Cypress Database Connection Tests
