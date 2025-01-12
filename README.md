@@ -3,7 +3,7 @@
 ## Configure Cypress to Use `@dankieu/cypress-sql`
 
 
-### 1. **Modify `cypress.config.ts` to Use the `@dankieu/cypress-sql` Package**
+### 1. **Modify `cypress.config.ts` to Use the `@dankieu/cypress-sql`  Package**
 
 ```typescript
 import * as db from "@dankieu/cypress-sql";
@@ -27,8 +27,41 @@ export default defineConfig({
 });
 ```
 
+
+## Cypress Configuration `CommonJS` syntax.
+
+```javascript
+const { defineConfig } = require("cypress");
+const db = require("@dankieu/cypress-sql");
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      // Implement node event listeners here
+      db.sqlServer(on);
+
+      return config;
+    },
+  },
+});
+
 ---
 
+## TypeScript Configuration
+
+### Example `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"]
+  },
+  "include": ["**/*.ts"]
+}
+```
+```
 ## Available Database Connections
 
 The `@dankieu/cypress-sql` package supports the following database connections:

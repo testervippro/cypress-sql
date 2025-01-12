@@ -1,6 +1,6 @@
 // Import the required modules using ES module syntax
 import { defineConfig } from 'cypress';
-import * as db from './dist/esm/index.mjs'; // Import everything from db
+import * as db from '@dankieu/cypress-sql'; // Import everything from db
 
 //whey need change to .js 
 // https://github.com/cypress-io/cypress/issues/23552
