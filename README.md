@@ -28,7 +28,8 @@ export default defineConfig({
 ```
 
 
-## Cypress Configuration `CommonJS` syntax.
+## Cypress Configuration (CommonJS Syntax)
+
 
 ```javascript
 const { defineConfig } = require("cypress");
@@ -44,12 +45,12 @@ module.exports = defineConfig({
     },
   },
 });
+```
+
 
 ---
 
 ## TypeScript Configuration
-
-### Example `tsconfig.json`:
 
 ```json
 {
@@ -61,29 +62,12 @@ module.exports = defineConfig({
   "include": ["**/*.ts"]
 }
 ```
-```
-## Available Database Connections
 
-The `@dankieu/cypress-sql` package supports the following database connections:
-
-- **SQL Server**: `db.sqlServer(on)`
-- **Oracle Database**: `db.sqlOracle(on)`
-- **MySQL**: `db.sqlMySql(on)`
-- **PostgreSQL**: `db.sqlPg(on)`
-
-Each of these methods establishes a connection to the respective database type when Cypress tests are running.
-
----
-
-## 2: Import the Package in `e2e.ts`
-
-In your `cypress/support/e2e.ts` file, simply import the `@dankieu/cmd` package. This will automatically add the custom SQL commands to Cypress.
-
-### Example: `cypress/support/e2e.ts`
-
-```typescript
-import "@dankieu/cmd"; // Import @dankieu/cmd to initialize custom SQL commands
-```
+### Explanation:
+- **`target: "es5"`**: Ensures compatibility with older JavaScript environments.
+- **`lib: ["es5", "dom"]`**: Specifies the libraries that will be included in the compilation process.
+- **`types: ["cypress", "node"]`**: Includes type definitions for Cypress and Node.js to enable IntelliSense and type checking.
+- **`include: ["**/*.ts"]`**: Includes all TypeScript files in the project.
 
 ---
 
