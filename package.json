@@ -1,11 +1,19 @@
 {
   "name": "@dankieu/cypress-sql",
-  "version": "2.0.6",
-  "main": "src/index.js",
- "types": "dist/types/index.d.ts",
+  "version": "2.1.3",
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.cjs",
+      "import": "./dist/esm/index.mjs"
+    }
   },
   "peerDependencies": {
     "cypress": "^12.0.0"
@@ -14,8 +22,8 @@
     "cypress",
     "sql",
     "typescript",
-     "cypress-sql",
-       "custom-cmd"
+    "cypress-sql",
+    "custom-cmd"
   ],
   "author": "Dan Kieu",
   "license": "MIT",
@@ -27,6 +35,7 @@
     "pg": "^8.13.1"
   },
   "devDependencies": {
+    "@types/node": "^22.10.5",
     "typescript": "^5.7.3"
   }
 }

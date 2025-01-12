@@ -2,19 +2,8 @@
 
 ## Configure Cypress to Use `@dankieu/cypress-sql`
 
-### 1. **Ensure TypeScript Configuration (`tsconfig.json`) is Set Up Properly**
 
-In your `tsconfig.json` file, make sure to enable `esModuleInterop`:
-
-```json
-{
-  "compilerOptions": {
-    "esModuleInterop": true
-  }
-}
-```
-
-### 2. **Modify `cypress.config.ts` to Use the `@dankieu/cypress-sql` Package**
+### 1. **Modify `cypress.config.ts` to Use the `@dankieu/cypress-sql` Package**
 
 ```typescript
 import * as db from "@dankieu/cypress-sql";
@@ -53,7 +42,7 @@ Each of these methods establishes a connection to the respective database type w
 
 ---
 
-## 3: Import the Package in `e2e.ts`
+## 2: Import the Package in `e2e.ts`
 
 In your `cypress/support/e2e.ts` file, simply import the `@dankieu/cmd` package. This will automatically add the custom SQL commands to Cypress.
 

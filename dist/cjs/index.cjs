@@ -1,9 +1,8 @@
-import oracledb from 'oracledb';
-import sql from 'mssql';
-import mysql from 'mysql';
-import pg from "pg"
+const oracledb = require('oracledb');
+const sql = require('mssql');
+const mysql = require('mysql');
+const { Client } = require('pg');
 
-const { Client } = pg;
 
 function formatResults(rows) {
   if (!rows || !Array.isArray(rows)) {
@@ -167,7 +166,7 @@ async function $sqlPg(dbConfig, query) {
       });
   });
 }
-export const sqlOracle = ((on) => {
+const sqlOracle = ((on) => {
 
   on('task', {
     sqlOracle({ connectConfig, sqlQuery }) {
@@ -177,7 +176,7 @@ export const sqlOracle = ((on) => {
 
 });
 
-export const sqlServer = ((on) => {
+const sqlServer = ((on) => {
     on('task', {
         sqlServer({ connectConfig, sqlQuery }) {
         return $sqlServer(connectConfig, sqlQuery);
@@ -186,7 +185,7 @@ export const sqlServer = ((on) => {
   
   });
 
-export const sqlMySql = ((on) => {
+const sqlMySql = ((on) => {
     on('task', {
       sqlMySql({ connectConfig, sqlQuery }) {
         return $sqlMySql(connectConfig, sqlQuery);
@@ -195,7 +194,7 @@ export const sqlMySql = ((on) => {
   
   });
 
-export const sqlPg = ((on) => {
+const sqlPg = ((on) => {
     on('task', {
       sqlPg({ connectConfig, sqlQuery }) {
         return $sqlPg(connectConfig, sqlQuery);
@@ -203,3 +202,14 @@ export const sqlPg = ((on) => {
     });
   
   });  
+
+
+
+    
+module.exports = {
+  sqlOracle,
+  sqlServer,
+  sqlMySql,
+  sqlPg,
+
+}

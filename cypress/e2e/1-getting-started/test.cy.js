@@ -1,5 +1,5 @@
 describe("Test connect to Db", () => {
-  it("should fetch data from SQL Server", () => {
+  it.only("should fetch data from SQL Server", () => {
     const config = {
       user: "SA", 
       password: "Password789",
