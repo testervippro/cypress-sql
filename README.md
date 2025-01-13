@@ -1,9 +1,8 @@
 
 
-## Configure Cypress to Use `@dankieu/cypress-sql`
+## Configure Cypress to Use `@dankieu/cypress-sql` 
 
-
-### 1. **Modify `cypress.config.ts` to Use the `@dankieu/cypress-sql`  Package**
+### 1. **Modify `cypress.config.ts` to Use the `@dankieu/cypress-sql` Package**
 
 ```typescript
 import * as db from "@dankieu/cypress-sql";
@@ -28,8 +27,7 @@ export default defineConfig({
 ```
 
 
-## Cypress Configuration (CommonJS Syntax)
-
+# Cypress Configuration (CommonJS Syntax)
 
 ```javascript
 const { defineConfig } = require("cypress");
@@ -45,22 +43,31 @@ module.exports = defineConfig({
     },
   },
 });
+
 ```
 
 
+## Available Database Connections
+
+The `@dankieu/cypress-sql` package supports the following database connections:
+
+- **SQL Server**: `db.sqlServer(on)`
+- **Oracle Database**: `db.sqlOracle(on)`
+- **MySQL**: `db.sqlMySql(on)`
+- **PostgreSQL**: `db.sqlPg(on)`
+
+Each of these methods establishes a connection to the respective database type when Cypress tests are running.
+
 ---
 
-## TypeScript Configuration
+## 2: Import the Package in `e2e.ts`
 
-```json
-{
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["cypress", "node"]
-  },
-  "include": ["**/*.ts"]
-}
+In your `cypress/support/e2e.ts` file, simply import the `@dankieu/cmd` package. This will automatically add the custom SQL commands to Cypress.
+
+### Example: `cypress/support/e2e.ts`
+
+```typescript
+import "@dankieu/cmd"; // Import @dankieu/cmd to initialize custom SQL commands
 ```
 
 ---
