@@ -7,30 +7,32 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Use Node.js ${{ matrix.node-version }}
+
+    - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        
-    - run: npm ci
 
-    - run: npm run build --if-present
+    - name: Install dependencies
+      run: npm ci
 
-    - name: Install Cypress dependencies
-      run: npm install cypress --save-dev
+    - name: Run Cypress tests with Firefox
+      run: npx cypress run --browser firefox --spec 'cypress/e2e/**/*'
 
-    - name: Run Cypress tests
-      run: npx cypress run
+    - name: Upload Cypress artifacts (videos/screenshots)
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-artifacts
+        path: |
+          cypress/videos/**/*.mp4
+          cypress/screenshots/**/*.png
+        retention-days: 1
