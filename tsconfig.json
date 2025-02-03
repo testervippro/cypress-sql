@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "ES2015",
+    "lib": ["DOM", "ES5"],
+    "types": ["cypress"],  // Removed "module" from here
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "cypress/**/*.ts",               // Include all Cypress test files
+    "cypress/support/**/*.ts"        // Include any support files
+  ],
+  "exclude": [
+    "node_modules", 
+    "dist", 
+    "dist/types"
+  ]
+}
