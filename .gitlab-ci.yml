@@ -1,0 +1,28 @@
+stages:
+  - test
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .npm/
+
+test:
+  image: cypress/browsers:22.12.0
+  stage: test
+  script:
+    # Force install cypress-parallel and cypress-multi-reporters
+    - npm install cypress-parallel@^0.14.0 cypress-multi-reporters@^1.5.0 --force
+    # Install other dependencies using npm ci (this will exclude previously installed packages)
+    - npm ci
+    # Start the server in the background (optional, uncomment if needed)
+    # - npm start &
+    # Run Cypress tests from the specific folder (cypress/e2e) using Firefox
+    - npx cypress run --browser firefox --spec 'cypress/e2e/**/*'
+  artifacts:
+    when: always
+    paths:
+      # Uncomment to save videos/screenshots of failed tests
+      # - cypress/videos/**/*.mp4
+      # - cypress/screenshots/**/*.png
+    expire_in: 1 day
