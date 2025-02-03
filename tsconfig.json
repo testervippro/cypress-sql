@@ -13,7 +13,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "cypress/**/*.ts",               // Include all Cypress test files
+    "cypress/**/*.js",               // Include all Cypress test files
     "cypress/support/**/*.ts"        // Include any support files
   ],
   "exclude": [
