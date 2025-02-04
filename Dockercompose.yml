@@ -8,6 +8,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: employees
+      MYSQL_ROOT_PASSWORD: college
     networks:
       - db_network
 

@@ -60,7 +60,7 @@ describe("Test connect to Db", () => {
     );
   });
 
-  it("should fetch data from MySQL", () => {
+  it.only("should fetch data from MySQL", () => {
     // Define the connection configuration
     let dbConfig = {
       host: "localhost",

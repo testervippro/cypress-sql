@@ -19,6 +19,7 @@ jobs:
           - 3306:3306
         env:
           MYSQL_DATABASE: employees
+          MYSQL_ROOT_PASSWORD: college
       postgres:
         image: ghusta/postgres-world-db:2.12
         ports:
