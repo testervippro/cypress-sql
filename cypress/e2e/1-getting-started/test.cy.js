@@ -1,8 +1,8 @@
 describe("Test connect to Db", () => {
-  it.only("should fetch data from SQL Server", () => {
+  it("should fetch data from SQL Server", () => {
     const config = {
       user: "SA", 
-      password: "Password789",
+      password: "Alaska2017",
       server: "localhost", 
       port: 1433, 
       database: "master", 
@@ -33,14 +33,14 @@ describe("Test connect to Db", () => {
   it("should fetch data from OracleDB", () => {
     // Define the connection configuration
     let config = {
-      user: "hr", 
-      password: "hr",
-      connectString: "localhost:1521/orcl", 
-    };
+  user: "my_user", 
+  password: "password_i_should_change",
+  connectString: "localhost:1521/FREEPDB1", 
+};
 
     // Define the SQL query
-    let sql =
-      "SELECT employee_id, first_name, last_name, salary FROM employees";
+    let sql = "SELECT 'employee_id' AS employee_id, 'first_name' AS first_name, 'last_name' AS last_name, 'salary' AS salary FROM DUAL";
+
 
     // Use the sqlOracle task to execute the query
     cy.task("sqlOracle", {

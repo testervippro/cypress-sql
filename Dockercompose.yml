@@ -1,0 +1,76 @@
+version: '3.8'
+services:
+  mysql:
+    image: genschsa/mysql-employees
+    container_name: mysql-container
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: employees
+    networks:
+      - db_network
+
+ #user root
+ #pass :college
+ #dbname:employees     
+
+  postgres:
+    image: ghusta/postgres-world-db:2.12
+    container_name: postgres-container
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - db_network
+# database : world-db
+# user : world
+# password : world123
+# Schema
+# public
+# Tables
+# This database contains 4 tables :
+# city
+# country
+# country_language
+# country_flag
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver-container
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Alaska2017"  # User: SA
+    networks:
+      - db_network
+
+
+#SA user 
+#SA_PASSWORD=Alaska2017
+  oracle:
+    image: gvenzl/oracle-free:latest
+    container_name: oracle-container
+    restart: always
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_RANDOM_PASSWORD: "true"
+      APP_USER: "my_user"
+      APP_USER_PASSWORD: "password_i_should_change"
+    networks:
+      - db_network
+
+networks:
+  db_network:
+    driver: bridge
+#Oracle db
+#Hostname:
+# oracle (from within another container)
+# localhost or 127.0.0.1 (from the host directly)
+# Port: 1521
+# Service name: FREEPDB1
+# Database App User: my_user
+# Database App Password: password_i_should_change
