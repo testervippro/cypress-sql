@@ -1,4 +1,4 @@
-
+## Run docker-compose to install container db 
 
 ## Configure Cypress to Use `@dankieu/cypress-sql` 
 
