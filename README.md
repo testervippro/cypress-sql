@@ -80,7 +80,7 @@ import "@dankieu/cmd"; // Import @dankieu/cmd to initialize custom SQL commands
   ```json
   {
     "user": "SA",
-    "password": "Password789",
+    "password": "Alaska2017",
     "server": "localhost",
     "port": 1433,
     "database": "master",
@@ -111,16 +111,15 @@ import "@dankieu/cmd"; // Import @dankieu/cmd to initialize custom SQL commands
 ### 2. **OracleDB**
 - **Test**: Fetch data from an Oracle database.
 - **Connection Config**:
-  ```json
-  {
-    "user": "hr",
-    "password": "hr",
-    "connectString": "localhost:1521/orcl"
+  ```{json
+   user: "my_user", 
+  password: "password_i_should_change",
+  connectString: "localhost:1521/FREEPDB1",
   }
   ```
 - **SQL Query**:
   ```sql
-  SELECT employee_id, first_name, last_name, salary FROM employees;
+  SELECT 'employee_id' AS employee_id, 'first_name' AS first_name, 'last_name' AS last_name, 'salary' AS salary FROM DUAL;
   ```
 - **Custom Commands**:
   - Using `cy.task('sqlOracle')`:
