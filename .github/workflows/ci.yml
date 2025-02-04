@@ -1,0 +1,62 @@
+name: Database and Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: genschsa/mysql-employees
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_DATABASE: employees
+      postgres:
+        image: ghusta/postgres-world-db:2.12
+        ports:
+          - 5432:5432
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        ports:
+          - 1433:1433
+        env:
+          ACCEPT_EULA: "Y"
+          SA_PASSWORD: "Alaska2017"
+      oracle:
+        image: gvenzl/oracle-free:latest
+        ports:
+          - 1521:1521
+        env:
+          ORACLE_RANDOM_PASSWORD: "true"
+          APP_USER: "my_user"
+          APP_USER_PASSWORD: "password_i_should_change"
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.17.0  # Node.js version
+
+    - name: Wait for databases to be ready
+      run: |
+        sleep 30
+
+    - name: Install dependencies using npm ci
+      run: npm ci  # Use npm ci for a clean install using package-lock.json
+
+    - name: Install Cypress
+      run: npm install cypress
+
+    - name: Run Cypress Tests
+      run: npx cypress run
