@@ -14,7 +14,7 @@ describe("Test connect to Db", () => {
 
     const sql = "SELECT * FROM sys.tables;";
     
-    // In case use ` ` must wrap all to cy.then
+ 
     cy.task("sqlServer", { connectConfig: config, sqlQuery: sql }).then(
       (results) => {
         // Log the results
@@ -22,6 +22,7 @@ describe("Test connect to Db", () => {
       }
     );
 
+       // In case use ` ` must wrap all to cy.then ({ })
     cy.sqlServer(config,sql).then(
       (results) => {
         // Log the results
