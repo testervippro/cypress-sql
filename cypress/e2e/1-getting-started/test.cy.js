@@ -12,6 +12,7 @@ describe("Test connect to Db", () => {
       },
     };
 
+
     const sql = "SELECT * FROM sys.tables;";
     
  
@@ -29,6 +30,18 @@ describe("Test connect to Db", () => {
         console.log("Query Results Custom CMD:SQL Server", results[0]);
       }
     );
+
+cy.then(())=> {
+ const sql = "SELECT * FROM sys.tables where sthing code js";
+    // In case use ` ` must wrap all to cy.then ({ })
+    cy.sqlServer(config,sql).then(
+      (results) => {
+        // Log the results
+        console.log("Query Results Custom CMD:SQL Server", results[0]);
+      }
+    );
+}
+
     
   });
 
